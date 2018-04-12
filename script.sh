@@ -1,7 +1,16 @@
 #!/bin/bash
 export DISPLAY=":1"
 
-vncserver $DISPLAY -geometry 1440x900 && \
+if [ -z "$PORT" ]
+then
+  # $PORT variable empty or not set
+  VNC_PORT=5901
+else
+  # read the value
+  VNC_PORT=$PORT
+fi
+
+vncserver $DISPLAY -geometry 1280x800 -rfbport $VNC_PORT && \
 tail -f /root/.vnc/*.log & \
 google-chrome --args \
 --test-type \

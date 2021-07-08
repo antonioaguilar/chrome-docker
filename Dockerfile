@@ -17,8 +17,8 @@ RUN apt-get update && apt-get install -f -y \
     apt-get install -f -y && \
     rm google-chrome-stable_current_amd64.deb && \
     mkdir /main
-RUN wget -q -O /tmp/tigervnc-1.7.0.x86_64.tar.gz https://bintray.com/tigervnc/stable/download_file?file_path=tigervnc-1.7.0.x86_64.tar.gz && \
-    cd /tmp && tar -xf tigervnc-1.7.0.x86_64.tar.gz && cp -R tigervnc-1.7.0.x86_64/* /
+RUN wget -q -O /tmp/tigervnc-1.9.0.x86_64.tar.gz https://sourceforge.net/projects/tigervnc/files/stable/1.9.0/tigervnc-1.9.0.x86_64.tar.gz/download && \
+    cd /tmp && tar -xf tigervnc-1.9.0.x86_64.tar.gz && cp -R tigervnc-1.9.0.x86_64/* /
 RUN echo "password\npassword\nn\n" | vncpasswd
 RUN touch /root/.Xresources
 ADD xstartup.sh /root/.vnc/xstartup
